@@ -3,9 +3,6 @@ import { supabase } from "./supabase.js";
 const params = new URLSearchParams(window.location.search);
 const interviewType = params.get("type");
 
-// Retrieve API Key from Local Storage (Secure for public repos)
-const GROQ_API_KEY = localStorage.getItem("groq_api_key");
-
 const questionTextEl = document.getElementById("question-text");
 const answerInput = document.getElementById("answer-input");
 const submitBtn = document.getElementById("submit-answer");
@@ -69,11 +66,12 @@ function startTimer() {
 
 // Call AI
 async function getAIFeedback(question, answer) {
+  const apiKey = localStorage.getItem("groq_api_key");
   const response = await fetch("https://api.groq.com/openai/v1/chat/completions", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
-      Authorization: `Bearer ${GROQ_API_KEY}`,
+      Authorization: `Bearer ${apiKey}`,
     },
     body: JSON.stringify({
       model: "llama-3.3-70b-versatile",
@@ -106,8 +104,11 @@ submitBtn.addEventListener("click", async () => {
   const answer = answerInput.value.trim();
   if (!answer) return alert("Write an answer first");
 
-  if (!GROQ_API_KEY) {
-    alert("Missing API Key! Please go to the Settings page and save your Groq API Key.");
+  const apiKey = localStorage.getItem("groq_api_key");
+  if (!apiKey) {
+    if (confirm("Missing API Key! You need to save your Groq API Key in Settings first. Go there now?")) {
+      window.location.href = "settings.html";
+    }
     return;
   }
 
