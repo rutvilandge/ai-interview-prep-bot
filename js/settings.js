@@ -4,6 +4,7 @@ const passwordForm = document.getElementById("password-form");
 const newPasswordInput = document.getElementById("new-password");
 const saveBtn = document.getElementById("save-btn");
 const deleteBtn = document.getElementById("delete-account-btn");
+const clearKeyBtn = document.getElementById("clear-key-btn");
 
 // API Key Logic
 const apiForm = document.getElementById("api-key-form");
@@ -20,6 +21,14 @@ if (apiForm) {
     if (!key) return alert("Please enter a key.");
     localStorage.setItem("groq_api_key", key);
     alert("✅ API Key saved! You can now use the chat.");
+  });
+}
+
+if (clearKeyBtn) {
+  clearKeyBtn.addEventListener("click", () => {
+    localStorage.removeItem("groq_api_key");
+    if (groqKeyInput) groqKeyInput.value = "";
+    alert("API Key cleared from this browser.");
   });
 }
 

@@ -1,4 +1,4 @@
-# ai-interview-prep-bot 🤖
+# Interview Prep AI 🤖
 
 An AI-powered interview preparation platform that helps users practice Technical, Behavioral, and System Design interviews.
 
@@ -20,21 +20,16 @@ An AI-powered interview preparation platform that helps users practice Technical
 
 1. Clone the repository.
 2. Open `index.html` with a local server (e.g., Live Server in VS Code).
-3. Update Supabase keys in `js/supabase.js`.
-4. Enter your Groq API Key in the **Settings** page of the app.
-
-## API Keys
-
-Connect to powerful AI models from any app, anywhere. Useful for local development or non-Vercel deployments.
-
-- **Groq API**: Get Key
-- **Supabase API**: Get Key
-
-**Note:** This app runs entirely in the browser. You must enter your Groq API Key in the **Settings** page of your deployed website. Adding it to Vercel Environment Variables will not work.
+3. Update API keys in `js/supabase.js` and `js/chat.js` if needed.
 
 ## Deployment
 
 This project is deployed on Vercel.
+
+1. Push your code to GitHub.
+2. Import the repository into Vercel.
+3. Deploy.
+4. **Important:** Once deployed, visit the live site's **Settings** page and enter your Groq API Key.
 
 ---
 

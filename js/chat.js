@@ -191,12 +191,24 @@ if (!savedKey) {
         <span class="text-2xl">⚠️</span>
         <div>
           <p class="font-bold">Missing AI Key</p>
-          <p class="text-sm opacity-80">You need to save your Groq API Key in Settings to get feedback.</p>
+          <p class="text-sm opacity-80">You must save your Groq API Key in the <strong>Settings</strong> page of this Vercel website to get feedback.</p>
         </div>
       </div>
-      <a href="settings.html" class="bg-yellow-600 hover:bg-yellow-500 text-white px-6 py-2 rounded-lg font-semibold transition whitespace-nowrap">Add Key</a>
+      <button id="quick-add-key-btn" class="bg-yellow-600 hover:bg-yellow-500 text-white px-6 py-2 rounded-lg font-semibold transition whitespace-nowrap">Add Key Here</button>
     `;
     main.prepend(warning);
+
+    // Quick Add Key Logic
+    document.getElementById("quick-add-key-btn").addEventListener("click", () => {
+      const key = prompt("Enter your Groq API Key (starts with gsk_):");
+      if (key && key.trim().startsWith("gsk_")) {
+        localStorage.setItem("groq_api_key", key.trim());
+        alert("Key saved! Reloading page...");
+        window.location.reload();
+      } else if (key) {
+        alert("Invalid key format. It should start with 'gsk_'.");
+      }
+    });
   }
 }
 
