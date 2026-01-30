@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login | Interview Prep</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="js/style.css">
+</head>
+<body class="bg-gray-950 text-white min-h-screen flex items-center justify-center relative overflow-hidden selection:bg-indigo-500 selection:text-white">
+
+  <!-- Background Glow -->
+  <div class="fixed inset-0 -z-10 h-full w-full bg-gray-950 [background:radial-gradient(125%_125%_at_50%_10%,#000_40%,#4f46e5_100%)] opacity-30"></div>
+
+  <div class="bg-gray-900/50 backdrop-blur-xl p-8 rounded-2xl border border-white/10 w-full max-w-md shadow-2xl">
+    <h2 id="form-title" class="text-3xl font-bold mb-8 text-center bg-clip-text text-transparent bg-gradient-to-r from-indigo-400 to-cyan-400">Login</h2>
+
+    <form id="login-form" data-type="login" class="flex flex-col gap-5">
+      <input id="email" type="email" placeholder="Email" required 
+             class="bg-gray-950/50 border border-gray-700 rounded-xl p-4 text-white placeholder-gray-500 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition" />
+      
+      <input id="password" type="password" placeholder="Password" required 
+             class="bg-gray-950/50 border border-gray-700 rounded-xl p-4 text-white placeholder-gray-500 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition" />
+      
+      <button type="submit" id="submit-btn" 
+              class="bg-gradient-to-r from-indigo-600 to-violet-600 hover:from-indigo-500 hover:to-violet-500 text-white font-bold py-4 rounded-xl transition mt-4 shadow-lg shadow-indigo-500/20 transform hover:scale-[1.02]">
+        Login
+      </button>
+    </form>
+
+    <p class="mt-6 text-center text-gray-400 text-sm">
+      <span id="toggle-text">Don't have an account?</span>
+      <button id="toggle-auth" class="text-indigo-400 hover:text-indigo-300 ml-1 font-semibold transition">Sign Up</button>
+    </p>
+  </div>
+
+  <script type="module" src="js/supabase.js"></script>
+  <script type="module" src="js/auth.js"></script>
+
+  <!-- Script to toggle between Login and Sign Up -->
+  <script>
+    const toggleBtn = document.getElementById('toggle-auth');
+    const form = document.getElementById('login-form');
+    const title = document.getElementById('form-title');
+    const submitBtn = document.getElementById('submit-btn');
+    const toggleText = document.getElementById('toggle-text');
+
+    toggleBtn.addEventListener('click', () => {
+      const isLogin = form.dataset.type === 'login';
+      if (isLogin) {
+        // Switch to Sign Up
+        form.dataset.type = 'signup';
+        title.textContent = 'Create Account';
+        submitBtn.textContent = 'Sign Up';
+        toggleText.textContent = 'Already have an account?';
+        toggleBtn.textContent = 'Login';
+      } else {
+        // Switch to Login
+        form.dataset.type = 'login';
+        title.textContent = 'Login';
+        submitBtn.textContent = 'Login';
+        toggleText.textContent = "Don't have an account?";
+        toggleBtn.textContent = 'Sign Up';
+      }
+    });
+  </script>
+</body>
+</html>

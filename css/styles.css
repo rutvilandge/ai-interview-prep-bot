@@ -1,0 +1,43 @@
+/* css/style.css */
+
+body.bg-gradient {
+  background: radial-gradient(
+    circle at top,
+    #1e1b4b,
+    #020617 60%
+  );
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  padding: 12px 32px;
+  border-radius: 12px;
+  font-weight: 600;
+  display: inline-block;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  opacity: 0.9;
+}
+
+.btn-outline {
+  border: 1px solid #6366f1;
+  padding: 8px 20px;
+  border-radius: 10px;
+}
+
+.feature-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 24px;
+  backdrop-filter: blur(10px);
+}
+
+.feature-card h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+}

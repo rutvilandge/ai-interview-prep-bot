@@ -1,0 +1,30 @@
+body {
+  background-color: #030712; /* Dark background */
+  color: #f9fafb; /* Light text */
+  font-family: system-ui, -apple-system, sans-serif;
+  margin: 0;
+  padding: 20px;
+}
+
+/* Tailwind Utility Class Simulations */
+.bg-gray-900 { background-color: #111827; }
+.bg-gray-800 { background-color: #1f2937; }
+
+.border { border-width: 1px; border-style: solid; }
+.border-gray-800 { border-color: #1f2937; }
+
+.rounded-xl { border-radius: 0.75rem; }
+.p-6 { padding: 1.5rem; }
+
+.cursor-pointer { cursor: pointer; }
+.transition { transition: all 0.15s ease-in-out; }
+
+/* Note: The colon in hover:bg-gray-800 must be escaped with a backslash in CSS */
+.hover\:bg-gray-800:hover { background-color: #1f2937; }
+
+.text-xl { font-size: 1.25rem; line-height: 1.75rem; }
+.font-semibold { font-weight: 600; }
+.mb-2 { margin-bottom: 0.5rem; }
+.text-gray-400 { color: #9ca3af; }
+
+.hidden { display: none; }
