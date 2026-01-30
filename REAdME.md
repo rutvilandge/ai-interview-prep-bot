@@ -1,4 +1,4 @@
-# ai-interview-prep-bot 🤖
+# Interview Prep AI 🤖
 
 An AI-powered interview preparation platform that helps users practice Technical, Behavioral, and System Design interviews.
 
@@ -22,13 +22,6 @@ An AI-powered interview preparation platform that helps users practice Technical
 2. Open `index.html` with a local server (e.g., Live Server in VS Code).
 3. Update Supabase keys in `js/supabase.js`.
 4. Enter your Groq API Key in the **Settings** page of the app.
-
-## API Keys
-
-Connect to powerful AI models from any app, anywhere. Useful for local development or non-Vercel deployments.
-
-- **Groq API**: Get Key
-- **Supabase API**: Get Key
 
 ## Deployment
 
