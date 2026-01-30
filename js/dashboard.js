@@ -1,7 +1,5 @@
 import { supabase } from "./supabase.js";
 
-import { supabase } from "./supabase.js";
-
 const cardsContainer = document.getElementById("cards");
 
 const topics = [
@@ -92,7 +90,7 @@ async function loadStats() {
     .from("user_progress")
     .select("feedback, created_at")
     .eq("user_id", user.id)
-    .order("created_at", { ascending: true }); // Sort by date to get the latest last
+    .order("created_at", { ascending: true });
 
   if (error || !progress) return;
 
@@ -112,7 +110,6 @@ async function loadStats() {
     let scoredCount = 0;
 
     progress.forEach((p) => {
-      // Regex looks for "Score", ignores non-digits (like **: ), and captures the number
       const match = p.feedback && p.feedback.match(/Score\D*(\d+)/i);
       if (match && match[1]) {
         totalScore += parseInt(match[1]);

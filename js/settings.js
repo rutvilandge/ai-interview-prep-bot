@@ -3,6 +3,7 @@ import { supabase } from "./supabase.js";
 const passwordForm = document.getElementById("password-form");
 const newPasswordInput = document.getElementById("new-password");
 const saveBtn = document.getElementById("save-btn");
+const deleteBtn = document.getElementById("delete-account-btn");
 
 // API Key Logic
 const apiForm = document.getElementById("api-key-form");
@@ -46,5 +47,25 @@ if (passwordForm) {
 
     saveBtn.disabled = false;
     saveBtn.textContent = "Update Password";
+  });
+}
+
+// Delete Account Logic
+if (deleteBtn) {
+  deleteBtn.addEventListener("click", async () => {
+    if (confirm("Are you sure you want to delete your account? This will delete all your progress and cannot be undone.")) {
+      deleteBtn.disabled = true;
+      deleteBtn.textContent = "Deleting...";
+
+      const { data: { user } } = await supabase.auth.getUser();
+      if (user) {
+        // Delete user progress
+        await supabase.from("user_progress").delete().eq("user_id", user.id);
+        
+        // Sign out
+        await supabase.auth.signOut();
+        window.location.href = "index.html";
+      }
+    }
   });
 }
