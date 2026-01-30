@@ -20,16 +20,11 @@ An AI-powered interview preparation platform that helps users practice Technical
 
 1. Clone the repository.
 2. Open `index.html` with a local server (e.g., Live Server in VS Code).
-3. Update API keys in `js/supabase.js` and `js/chat.js` if needed.
+3. Update Supabase keys in `js/supabase.js`.
 
 ## Deployment
 
 This project is deployed on Vercel.
-
-1. Push your code to GitHub.
-2. Import the repository into Vercel.
-3. Deploy.
-4. **Important:** Once deployed, visit the live site's **Settings** page and enter your Groq API Key.
 
 ---
 
