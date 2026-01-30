@@ -1,6 +1,54 @@
 # Interview Prep AI 🤖
 
 An AI-powered interview preparation platform that helps users practice Technical, Behavioral, and System Design interviews.
+live demo:# AI Interview Prep Bot 🤖
+
+An AI-powered interview preparation platform that helps users practice technical, behavioral, and system design interviews with instant, actionable feedback.
+
+🔗 **Live Demo:** https://vercel.com/rutvilandges-projects/ai-interview-prep-bot/28UJzspzxF6zWbQoRSQjud2t912x
+
+---
+
+## ✨ Features
+
+- Practice multiple interview types: Technical, Behavioral, System Design
+- Real-time AI feedback using Groq (LLaMA)
+- Secure authentication with Supabase
+- Clean and responsive UI
+- User answer evaluation and improvement suggestions
+
+---
+
+## 🛠 Tech Stack
+
+| Layer | Technology |
+|-------|------------|
+| Frontend | HTML, CSS, JavaScript |
+| Backend / AI | Groq API |
+| Auth & Database | Supabase |
+| Deployment | Vercel |
+
+---
+
+## ⚙️ How It Works
+
+1. User signs up or logs in using Supabase.
+2. Selects an interview category (Technical / Behavioral / System Design).
+3. Answers interview questions through the UI.
+4. The answer is sent to the backend/AI for evaluation.
+5. The AI provides feedback and suggestions, shown to the user.
+
+---
+
+## 🚀 Local Setup (if you share the repo)
+
+To run this project locally:
+
+1. Clone the repository
+
+```bash
+git clone https://github.com/<your-username>/<your-repo-name>.git
+
 
 ## Features
 
