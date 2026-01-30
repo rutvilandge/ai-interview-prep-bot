@@ -16,8 +16,10 @@ if (savedKey && groqKeyInput) groqKeyInput.value = savedKey;
 if (apiForm) {
   apiForm.addEventListener("submit", (e) => {
     e.preventDefault();
-    localStorage.setItem("groq_api_key", groqKeyInput.value.trim());
-    alert("API Key saved successfully!");
+    const key = groqKeyInput.value.trim();
+    if (!key) return alert("Please enter a key.");
+    localStorage.setItem("groq_api_key", key);
+    alert("✅ API Key saved! You can now use the chat.");
   });
 }
 

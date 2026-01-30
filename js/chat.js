@@ -144,7 +144,14 @@ submitBtn.addEventListener("click", async () => {
     }
   } catch (error) {
     console.error(error);
-    alert(`Error: ${error.message}`);
+    // Handle Invalid API Key (401) specifically
+    if (error.message.includes("401")) {
+      if (confirm("API Key Error: Your Groq API Key is invalid or expired. Would you like to update it in Settings now?")) {
+        window.location.href = "settings.html";
+      }
+    } else {
+      alert(`Error: ${error.message}`);
+    }
   } finally {
     submitBtn.disabled = false;
     submitBtn.textContent = "Submit Answer";
