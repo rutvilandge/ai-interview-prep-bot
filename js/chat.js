@@ -172,4 +172,25 @@ if (copyBtn) {
   });
 }
 
+// Check for API key on load
+const savedKey = localStorage.getItem("groq_api_key");
+if (!savedKey) {
+  const main = document.querySelector("main");
+  if (main) {
+    const warning = document.createElement("div");
+    warning.className = "bg-yellow-500/10 border border-yellow-500/50 text-yellow-200 p-4 rounded-xl mb-6 flex flex-col sm:flex-row justify-between items-center gap-4 backdrop-blur-sm";
+    warning.innerHTML = `
+      <div class="flex items-center gap-3">
+        <span class="text-2xl">⚠️</span>
+        <div>
+          <p class="font-bold">Missing AI Key</p>
+          <p class="text-sm opacity-80">You need to save your Groq API Key in Settings to get feedback.</p>
+        </div>
+      </div>
+      <a href="settings.html" class="bg-yellow-600 hover:bg-yellow-500 text-white px-6 py-2 rounded-lg font-semibold transition whitespace-nowrap">Add Key</a>
+    `;
+    main.prepend(warning);
+  }
+}
+
 loadQuestion();
