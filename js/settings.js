@@ -4,6 +4,7 @@ const passwordForm = document.getElementById("password-form");
 const newPasswordInput = document.getElementById("new-password");
 const saveBtn = document.getElementById("save-btn");
 const deleteBtn = document.getElementById("delete-account-btn");
+const backBtn = document.getElementById("back-btn");
 
 if (passwordForm) {
   passwordForm.addEventListener("submit", async (e) => {
@@ -51,5 +52,12 @@ if (deleteBtn) {
         window.location.href = "index.html";
       }
     }
+  });
+}
+
+// Back Button Logic
+if (backBtn) {
+  backBtn.addEventListener("click", () => {
+    window.location.href = "dashboard.html";
   });
 }

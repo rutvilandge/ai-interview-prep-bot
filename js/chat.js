@@ -12,6 +12,7 @@ const feedbackBox = document.getElementById("feedback-box");
 const feedbackText = document.getElementById("feedback-text");
 const nextBtn = document.getElementById("next-question-btn");
 const copyBtn = document.getElementById("copy-feedback-btn");
+const backBtn = document.getElementById("back-btn");
 
 let currentQuestion = "";
 let currentQuestionId = null;
@@ -166,6 +167,13 @@ if (copyBtn) {
         copyBtn.innerHTML = originalText;
       }, 2000);
     });
+  });
+}
+
+// Handle Back Button
+if (backBtn) {
+  backBtn.addEventListener("click", () => {
+    window.location.href = "dashboard.html";
   });
 }
 
