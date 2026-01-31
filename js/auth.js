@@ -7,6 +7,7 @@ const emailInput = document.getElementById("email");
 const passwordInput = document.getElementById("password");
 const logoutBtn = document.getElementById("logout-btn");
 const submitBtn = document.getElementById("submit-btn");
+const resetBtn = document.getElementById("reset-progress-btn");
 
 // Helper to handle auth errors clearly
 function handleAuthError(error) {
@@ -88,6 +89,37 @@ async function logout() {
   }
 }
 
+// ---------------- RESET PROGRESS ----------------
+async function resetProgress() {
+  if (!confirm("Are you sure you want to delete all your progress? This cannot be undone.")) {
+    return;
+  }
+
+  if (resetBtn) {
+    resetBtn.disabled = true;
+    resetBtn.textContent = "Resetting...";
+  }
+
+  try {
+    const { data: { user } } = await supabase.auth.getUser();
+    if (user) {
+      const { error } = await supabase.from("user_progress").delete().eq("user_id", user.id);
+      if (error) throw error;
+      
+      alert("Progress has been reset.");
+      window.location.reload();
+    }
+  } catch (error) {
+    console.error("Reset error:", error);
+    alert("Failed to reset progress: " + error.message);
+  } finally {
+    if (resetBtn) {
+      resetBtn.disabled = false;
+      resetBtn.textContent = "Reset Progress";
+    }
+  }
+}
+
 // ---------------- FORM HANDLER ----------------
 if (loginForm) {
   loginForm.addEventListener("submit", (e) => {
@@ -126,4 +158,8 @@ checkAuth();
 // ---------------- LOGOUT BUTTON ----------------
 if (logoutBtn) {
   logoutBtn.addEventListener("click", logout);
+}
+
+if (resetBtn) {
+  resetBtn.addEventListener("click", resetProgress);
 }

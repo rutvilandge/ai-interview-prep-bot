@@ -8,6 +8,8 @@
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="js/style.css">
+  <!-- Chart.js for Graphs -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
 <body class="bg-gray-950 text-white min-h-screen selection:bg-indigo-500 selection:text-white">
@@ -46,8 +48,16 @@
     </section>
 
     <div class="flex justify-end mb-8">
-      <button id="reset-stats-btn" class="text-sm text-red-400 hover:text-red-300 underline transition">Reset All Progress</button>
+      <button id="reset-progress-btn" class="text-sm text-red-400 hover:text-red-300 underline transition">Reset All Progress</button>
     </div>
+
+    <!-- CHART SECTION -->
+    <section class="mb-12 bg-white/5 border border-white/10 rounded-2xl p-6 backdrop-blur-sm">
+      <h3 class="text-gray-400 text-sm font-medium mb-4">Performance Trend (Last 10)</h3>
+      <div class="relative h-64 w-full">
+        <canvas id="progressChart"></canvas>
+      </div>
+    </section>
 
     <!-- INTERVIEW TYPE -->
     <section>
@@ -58,6 +68,14 @@
         id="cards"
         class="grid grid-cols-1 md:grid-cols-3 gap-6"
       ></div>
+    </section>
+
+    <!-- HISTORY SECTION -->
+    <section class="mt-16 border-t border-white/10 pt-8">
+      <h2 class="text-2xl font-bold mb-6 text-white">Recent Activity</h2>
+      <div id="history-list" class="space-y-4">
+        <p class="text-gray-500 italic">Loading history...</p>
+      </div>
     </section>
 
   </main>
