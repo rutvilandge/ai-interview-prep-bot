@@ -50,7 +50,12 @@ async function loadStats() {
     .eq("user_id", user.id)
     .order("created_at", { ascending: false }); // Newest first
 
-  if (error || !progress) return;
+  if (error) {
+    console.error("Error loading stats:", error);
+    const historyList = document.getElementById("history-list");
+    if (historyList) historyList.innerHTML = `<p class="text-red-400">Error loading data: ${error.message}</p>`;
+    return;
+  }
 
   // 1. Questions Attempted
   const count = progress.length;
