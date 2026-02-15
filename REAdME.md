@@ -3,10 +3,6 @@
 An AI-powered interview preparation platform that helps users practice Technical, Behavioral, and System Design interviews.
 live demo:# AI Interview Prep Bot 🤖
 
-An AI-powered interview preparation platform that helps users practice technical, behavioral, and system design interviews with instant, actionable feedback.
-🚀 Live Demo: https://ai-interview-prep-bot-gray.vercel.app
-
-
 ## ✨ Features
 
 - Practice multiple interview types: Technical, Behavioral, System Design
